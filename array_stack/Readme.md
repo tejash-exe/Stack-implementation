@@ -90,3 +90,107 @@ I welcome feedback and suggestions to improve the project!
 - **LinkedIn**: [My LinkedIn Profile](https://www.linkedin.com/in/aditya-choudhary-31137b291/)  
 
 Made with ❤️ by [Aditya](https://github.com/tejash-exe)
+
+## Implementation 🔧
+```cpp
+class Stack {
+  private:
+    int topIndex;
+    vector<int> arr;
+
+  public:
+    Stack(){
+        this -> topIndex = -1;
+    }
+
+    void push(int value){
+        //Time complexity = O(1)
+        //Space complexity = O(1)
+
+        arr.push_back(value);
+        topIndex++;
+    }
+
+    void pop(){
+        //Time complexity = O(1)
+        //Space complexity = O(1)
+
+        if(topIndex == -1){
+            return;
+        }
+
+        arr.pop_back();
+        topIndex--;
+    }
+
+    int top(){
+        //Time complexity = O(1)
+        //Space complexity = O(1)
+
+        if(this -> topIndex == -1){
+            return -1;
+        }
+
+        return arr[this -> topIndex];
+    }
+
+    int size(){
+        //Time complexity = O(1)
+        //Space complexity = O(1)
+
+        return arr.size();
+    }
+
+    bool empty(){
+        //Time complexity = O(1)
+        //Space complexity = O(1)
+
+        if(topIndex == -1) return true;
+
+        return false;
+    }
+
+    void reverse(){
+        //Time complexity = O(n)
+        //Space complexity = O(1)
+
+        if(topIndex == -1) return;
+
+        int i = 0;
+        int j = topIndex;
+        while(i < j){
+            swap(arr[i], arr[j]);
+            i++;
+            j--;
+        }
+    }
+
+    void sort(){
+        //Time complexity = O(nlogn)
+        //Space complexity = O(1)
+
+        std::sort(arr.rbegin(), arr.rend());
+    }
+
+    void clear(){
+        //Time complexity = O(n)
+        //Space complexity = O(1)
+
+        while(arr.size() != 0){
+            arr.pop_back();
+        }
+    }
+
+    void print(){
+        //Time complexity = O(n)
+        //Space complexity = O(1)
+
+        for(auto i : arr){
+            cout << i << " ";
+        }
+        cout << endl;
+    }
+
+    ~Stack() = default;
+};
+```
